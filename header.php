@@ -20,18 +20,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!-- favicon -->
-  <?php
-  if (has_site_icon()) :
-    $favicon_img = esc_url(get_site_icon_url());
-  else :
-    $favicon_img = get_stylesheet_directory_uri() . "/img/favicon.png?v=1";
-  endif;
-  ?>
-  <link rel="icon" type="image/png" href="<?php echo $logo_img; ?>">
+  <link rel="icon" type="image/png" href="<?php echo get_site_icon_url( '512', get_stylesheet_directory_uri() . "/img/favicon.png", 0 ); ?>">
 
   <!-- extra stylesheets -->
   <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
   <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/tiny-slider.css" rel="stylesheet">
+  <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/jquery.fancybox.min.css" rel="stylesheet">
   <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/custom.css" rel="stylesheet">
 
   <?php wp_head(); ?>
@@ -40,16 +34,13 @@
 <body <?php body_class(); ?>>
   <div id="site" class="site <?php echo (is_front_page() ? " frontpage " : " otherpage "); ?>">
 
-    <!--SCROLL TO TOP-->
-    <a href="#home" class="scrolltotop"><i class="fa fa-long-arrow-up"></i></a>
-
     <header id="site-header" class="site-header">
 
-      <div class="header-branding">
+      <div class="header-top">
         <div class="container">
           <div class="row py-2">
 
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-sm-7 col-lg-4 order-1 order-lg-0">
               <div class="site-branding">
                 <?php
                 if (has_custom_logo()) :
@@ -67,25 +58,19 @@
               </div><!-- .site-branding -->
             </div>
 
-            <div class="col-12 col-lg-4">
-              <form class="search-form mt-4" action="/" method="get">
+            <div class="col-12 col-lg-4 order-3 order-lg-0">
+              <form class="search-form mt-4 pl-0 pl-lg-5" action="/" method="get">
                 <input type="search" name="s" id="search" value="" placeholder="search..." />
                 <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
               </form>
             </div>
 
-            <div class="col-12 col-lg-4">
-              <div class="row">
-                <div class="col-4 text-right">
-
-                </div>
-                <div class="col-8">
-
-                </div>
-              </div>
-              <div class="text-right mt-4">
-                <span><i class="fa fa-phone"></i> <a href="tel:+1234567890">+1 123 456 7890</a></span><br>
-                <span><i class="fa fa-envelope"></i> <a href="mailto:mail@yourwebsite.com">mail@yourwebsite.com</a></span>
+            <div class="col-12 col-sm-5 col-lg-4 order-2 order-lg-0">
+              <div class="contact-info">
+                <?php $phone_mod = ( !empty(get_theme_mod('undercustoms_contact_info_phone')) ) ? get_theme_mod('undercustoms_contact_info_phone') : '+1 123 456 7890' ; ?>
+                <h6><i class="fa fa-phone"></i> <a href="tel:<?php echo $phone_mod; ?>"><?php echo $phone_mod; ?></a></h6>
+                <?php $email_mod = ( !empty(get_theme_mod('undercustoms_contact_info_email')) ) ? get_theme_mod('undercustoms_contact_info_email') : 'youremail@mail.com' ; ?>
+                <h6><i class="fa fa-envelope"></i> <a href="mailto:<?php echo $email_mod; ?>"><?php echo $email_mod; ?></a></h6>
               </div>
             </div>
 

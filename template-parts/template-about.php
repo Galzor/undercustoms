@@ -6,112 +6,166 @@
  *
  * @package undercustoms
  */
-get_header(); ?>
+get_header();
+?>
 
-<div id="content" class="site-content full-width">
-  <main id="primary" class="content-area main-inner userdiv">
+<div id="primary" class="content-area">
+  <main id="main" class="site-main">
 
-    <div class="container-fluid titlemon" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/bluemon4.jpg');">
+    <div class="titlemon">
       <div class="title text-center">
         <h3 class="entry-title"> <?php the_title(); ?> </h3>
-        <span class="line"></span>
       </div>
     </div>
 
-    <!--About-->
-    <section class="about-area section-padding" id="about">
-      <div class="container">
-        <div class="about-content">
-          <div class="area-content">
-            <p class="h5">CAV Advisory Services Private Limited is a company established in city beautiful,  by a group of professionals having vast experience in various streams. The conceptualization of the idea was conceived few years back where few inquiries from clients could not be resolved due to inadequacy of specialization. </p>
-            <p class="h5">Looking at the same, the company came up with a new concept to deliver the services to the clients on single platform by experienced professionals in respective streams. The activity of the company is advisory in nature wherein Collective efforts of esteemed associates who believe in Outstanding quality and New ideas for rendering the services to the clients on Common platform with Extraordinary skill from Professionally qualified persons to perform in settled time framework. Our mission, commitment, core business and the people is CONCEPT where we mean and commit.</p>
-          </div>      
-        </div>
-      </div>
-    </section>
+    <div class="content-block pt-5">
 
-    <!--Services-->
-    <section class="facilities-area section-padding" id="promotion">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-md-3">
-
-            <div class="sidebar">
-              <aside id="tertiary" class="widget-area">
-                <div class="widget custom-widget-subpages">
-                  <h3 class="widget-title text-uppercase"> Our Strengths </h3>
-                  <p class="text-white"> Our strengths are our people, processes and professionalism. Well structured teams with domain specialization are guided by visionary leaders who possess expertise and experience and are present PAN India to ensure excellent client service. </p>
-                </div>
-              </aside>
-            </div>
-
-          </div>
-          <div class="col-md-9">
-
-            <div class="row">
-
-              <div class="col-md-12 wow fadeInRight">
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <h5 class="card-title">TEAM DRIVEN PASSION FOR UNPARALLED SERVICES</h5>
-                    <p class="card-text"></p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 wow fadeInRight">
-                <div class="card mb-4">            
-                  <div class="card-body">
-                    <h5 class="card-title">SIMPLIFICATION OF COMPLEX BUSINESS PROCESSES</h5>
-                    <p class="card-text"></p>        
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 wow fadeInRight">
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <h5 class="card-title">FINANCIAL STRATEGY FOR YOUR BUSINESS</h5>
-                    <p class="card-text"></p>     
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 wow fadeInRight">
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <h5 class="card-title">CORPORATE FINANCIAL DISTRESS &amp; BANKRUPCY</h5>
-                    <p class="card-text"></p>         
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 wow fadeInRight">
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <h5 class="card-title">RELIABLE INNOVATIVE BUSINESS CONSULTANTS IN NORTH INDIA</h5>
-                    <p class="card-text"> </p>        
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 wow fadeInRight">
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <h5 class="card-title">GROWTH PROSPECTUS</h5>
-                    <p class="card-text"> </p>        
-                  </div>
-                </div>
-              </div>
-
-            </div>
+      <section class="common-section about-section">
+        <div class="container">
+          <div class="lead">
+            <?php
+              // TO SHOW THE PAGE CONTENTS
+              while ( have_posts() ) : the_post();
+                the_content();
+              endwhile;
+              wp_reset_query();
+            ?>
           </div>
         </div>
-     
-      </div>
-    </section>
+      </section>
+
+      <section class="common-section team-section">
+        <div class="parallax-box">
+          <img class="parallax-img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/testimonials-bg.jpg">
+        </div>
+        <div class="container py-5">
+          <div class="section-title text-center mb-5 text-white">
+            <h2>Our Team</h2>
+            <p>Know who we are, know our trainers </p>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/user.jpg" class="card-img-top" alt="">
+                <div class="card-body text-center">
+                  <h5 class="card-title mb-0">John Doe</h5>
+                  <p class="card-text">Fitness Trainer</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/user.jpg" class="card-img-top" alt="">
+                <div class="card-body text-center">
+                  <h5 class="card-title mb-0">John Doe</h5>
+                  <p class="card-text">Fitness Trainer</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/user.jpg" class="card-img-top" alt="">
+                <div class="card-body text-center">
+                  <h5 class="card-title mb-0">John Doe</h5>
+                  <p class="card-text">Fitness Trainer</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/user.jpg" class="card-img-top" alt="">
+                <div class="card-body text-center">
+                  <h5 class="card-title mb-0">John Doe</h5>
+                  <p class="card-text">Fitness Trainer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="common-section about-section">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-md-3">
+              <div class="sidebar">
+                <aside id="tertiary" class="widget-area">
+                  <div class="widget custom-widget-subpages">
+                    <h3 class="widget-title text-uppercase"> Our Strengths </h3>
+                    <p class="text-white"> Our strengths are our people, processes and professionalism. Well structured teams with domain specialization are guided by visionary leaders who possess expertise and experience and are present to ensure excellent client service. </p>
+                  </div>
+                </aside>
+              </div>
+            </div>
+
+            <div class="col-md-9">
+              <div class="row">
+
+                <div class="col-md-12">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5 class="card-title">GREAT PASSION FOR UNPARALLED SERVICES</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5 class="card-title">SIMPLIFICATION OF COMPLEX FITNESS MODELS</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5 class="card-title">FINANCIAL STRATEGY FOR YOUR PLANS</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5 class="card-title">VISIBLE RESULTS FOR YOUR GROWTH & FITNESS</h5>
+                      <p class="card-text"> </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="common-section services-section">
+        <div class="parallax-box">
+          <img class="parallax-img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/contact-bg.jpg">
+        </div>
+        <div class="container py-5">
+          <div class="section-title text-center text-white mb-4">
+            <h2>Get in touch with us today!</h2>
+          </div>
+          <p class="text-center mt-5"><a class="btn btn-light" href="<?php echo site_url(); ?>/contact/"> WRITE TO US </a></p>
+        </div>
+      </section>
+
+    </div>
 
   </main><!-- #main -->
 </div><!-- #primary -->
-<?php get_footer(); ?>
+
+<?php
+get_footer();

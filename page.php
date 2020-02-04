@@ -18,23 +18,39 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+      <div class="titlemon">
+        <div class="title text-center">
+          <h3 class="entry-title"> <?php the_title(); ?> </h3>
+        </div>
+      </div>
 
-			get_template_part( 'template-parts/content', 'page' );
+      <div class="container">
+        <div class="row py-5">
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+          <div class="col-md-8 col-lg-9 content-actual">
 
-		endwhile; // End of the loop.
-		?>
+            <?php
+            while ( have_posts() ) :
+              the_post();
+              get_template_part( 'template-parts/content', 'page' );
+              // If comments are open or we have at least one comment, load up the comment template.
+              if ( comments_open() || get_comments_number() ) :
+                comments_template();
+              endif;
+            endwhile; // End of the loop.
+            ?>
 
+          </div>
+
+          <div class="col-md-4 col-lg-3 sidebar">
+            <!-- sidebar.php heavily modified -->
+            <?php get_sidebar(); ?>
+          </div>
+
+        </div>
+      </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

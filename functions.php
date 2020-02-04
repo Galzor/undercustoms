@@ -177,3 +177,51 @@ function register_navwalker(){
 	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 }
 add_action( 'after_setup_theme', 'register_navwalker' );
+
+
+/**
+ * Limit for excerpt
+ * use echo excerpt(30)
+ */
+function excerpt($limit) {
+  $excerpt = explode(' ', get_the_excerpt(), $limit);
+  if (count($excerpt)>=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt).'...';
+  } else {
+    $excerpt = implode(" ",$excerpt);
+  }
+  $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
+  return $excerpt;
+}
+
+
+/**
+ * Remove the Extra slug from archive titles
+ */
+function undercustoms_trim_archive_titles($title) {
+  if ( is_category() ) {
+    $title = single_cat_title( '', false );
+  } elseif ( is_tag() ) {
+    $title = single_tag_title( '', false );
+  } elseif ( is_author() ) {
+    $title = '<span class="vcard">' . get_the_author() . '</span>' ;
+  } elseif ( is_tax() ) {
+    $title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
+  }
+  return $title;
+}
+add_filter( 'get_the_archive_title', 'undercustoms_trim_archive_titles' );
+
+
+/**
+ * Add class to post nav buttons
+ */
+add_filter('next_post_link', 'post_link_attributes');
+add_filter('previous_post_link', 'post_link_attributes');
+function post_link_attributes($output) {
+  $code = 'class="btn btn-dark mt-4"';
+  return str_replace('<a href=', '<a '.$code.' href=', $output);
+}
+
+

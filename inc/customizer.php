@@ -56,35 +56,6 @@ add_action( 'customize_preview_init', 'undercustoms_customize_preview_js' );
 
 
 
-
-/**
- * Amanized customizer class for multiple select images.
- */
-if (!class_exists('WP_Customize_Image_Control')) {
-  return null;
-}
-class undercustoms_Multi_Image_Control extends WP_Customize_Control {
-  public function enqueue() {
-    wp_enqueue_style('undercustoms-customizer-style', get_template_directory_uri().'/css/customizer.css');
-    wp_enqueue_script('undercustoms-customizer-script', get_template_directory_uri().'/js/customizer.js', array( 'jquery' ), rand(), true);
-  }
-
-  public function render_content() {
-  	?>
-      <h5 class='customize-control-title'>Add images to carousel</h5>
-      <p>This is for front page only. You can choose multiple images. Click on image to remove it. Recommended Resolution is 1600x320.</p>
-      <p>Image Order is reverse, that means last added image will be displayed first. </p>
-      <div>
-        <ul class='images'></ul>
-      </div>
-      <div class='actions'>
-        <a class="button-secondary upload">Add Image</a>
-      </div>
-      <input class="wp-editor-area" id="images-input" type="hidden" <?php $this->link(); ?>>
-    <?php
-  }
-}
-
 /**
  * Amanized customizer option for darkcustoms
  */
@@ -187,3 +158,66 @@ function darkcustoms_customize_register_slides( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'darkcustoms_customize_register_slides' );
+
+
+
+/**
+ * Amanized customizer option for darkcustoms
+ */
+function darkcustoms_customize_register_contact_info( $wp_customize ) {
+
+  // $wp_customize->add_panel( 'undercustoms_contact_info_panel', array(
+  //   'priority'       => 60,
+  //   'capability'     => 'edit_theme_options',
+  //   'theme_supports' => '',
+  //   'title'          => 'Contact Info',
+  //   'description'    => 'Set your contact information like email, phone number and address.',
+  // ));
+
+  //create section
+  $wp_customize->add_section( 'undercustoms_contact_info_section' , array(
+    'priority'       => 60,
+    'capability'     => 'edit_theme_options',
+    'theme_supports' => '',
+    'title'          => 'Contact Info',
+    'description'    => 'Set your contact information like email, phone number and address. You can use little html.',
+    // 'panel'          => 'undercustoms_contact_info_panel',
+  ));
+
+  // email
+  $wp_customize->add_setting('undercustoms_contact_info_email',  array(
+    'default'    =>  '',
+    'transport'  =>  'postMessage'
+  ));
+  $wp_customize->add_control('undercustoms_contact_info_email',  array(
+    'section'   => 'undercustoms_contact_info_section',
+    'label'     => 'Email Address',
+    'type'      => 'text',
+  ));
+
+  //phone
+  $wp_customize->add_setting('undercustoms_contact_info_phone',  array(
+    'default'    =>  '',
+    'transport'  =>  'postMessage'
+  ));
+  $wp_customize->add_control('undercustoms_contact_info_phone',  array(
+    'section'   => 'undercustoms_contact_info_section',
+    'label'     => 'Contact Phone',
+    'type'      => 'text',
+  ));
+
+  //Address
+  $wp_customize->add_setting('undercustoms_contact_info_address',  array(
+    'default'    =>  '',
+    'transport'  =>  'postMessage'
+  ));
+  $wp_customize->add_control('undercustoms_contact_info_address',  array(
+    'section'   => 'undercustoms_contact_info_section',
+    'label'     => 'Address',
+    'type'      => 'textarea',
+  ));
+
+
+}
+add_action( 'customize_register', 'darkcustoms_customize_register_contact_info' );
+

@@ -18,42 +18,55 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-		<?php
-		if ( have_posts() ) :
+      <div class="container">
+        <div class="row py-5">
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+          <div class="col-md-8 col-lg-9 content-actualxxx">
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+            <?php
+            if ( have_posts() ) :
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+              if ( is_home() && ! is_front_page() ) :
+                ?>
+                <header>
+                  <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+                </header>
+                <?php
+              endif;
 
-			endwhile;
+              /* Start the Loop */
+              while ( have_posts() ) :
+                the_post();
+                /*
+                 * Include the Post-Type-specific template for the content.
+                 * If you want to override this in a child theme, then include a file
+                 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+                 */
+                get_template_part( 'template-parts/content', 'blogpost' );
+                // get_template_part( 'template-parts/content', get_post_type() );
 
-			the_posts_navigation();
+              endwhile;
+              the_posts_navigation()
+              ;
+            else :
 
-		else :
+              get_template_part( 'template-parts/content', 'none' );
 
-			get_template_part( 'template-parts/content', 'none' );
+            endif;
+            ?>
 
-		endif;
-		?>
+          </div>
+
+          <div class="col-md-4 col-lg-3 sidebar">
+            <!-- sidebar.php heavily modified -->
+            <?php get_sidebar(); ?>
+          </div>
+
+        </div>
+      </div>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
