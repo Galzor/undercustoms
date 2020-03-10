@@ -68,7 +68,7 @@
             <div class="col-12 col-sm-5 col-lg-4 order-2 order-lg-0">
               <div class="contact-info">
                 <?php $phone_mod = ( !empty(get_theme_mod('undercustoms_contact_info_phone')) ) ? get_theme_mod('undercustoms_contact_info_phone') : '+1 123 456 7890' ; ?>
-                <h6><i class="fa fa-phone"></i> <a href="tel:<?php echo $phone_mod; ?>"><?php echo $phone_mod; ?></a></h6>
+                <h6><i class="fa fa-phone"></i> <a href="tel:<?php echo str_replace(' ', '', $phone_mod); ?>"><?php echo $phone_mod; ?></a></h6>
                 <?php $email_mod = ( !empty(get_theme_mod('undercustoms_contact_info_email')) ) ? get_theme_mod('undercustoms_contact_info_email') : 'youremail@mail.com' ; ?>
                 <h6><i class="fa fa-envelope"></i> <a href="mailto:<?php echo $email_mod; ?>"><?php echo $email_mod; ?></a></h6>
               </div>

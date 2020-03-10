@@ -34,6 +34,34 @@ get_header();
         </div>
       </section>
 
+      <section class="common-section about-section border-top">
+        <div class="container py-5">
+          <div class="row">
+
+            <div class="col-md-3">
+              <div class="sidebar">
+                <aside id="tertiary" class="widget-area">
+                  <div class="widget custom-widget-subpages">
+                    <div class="custom-fields-right text-white text-center text-md-left">
+                      <?php echo get_post_meta($post->ID, 'content-left', true); ?>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+
+            <div class="col-md-9">
+
+              <div class="custom-fields-right card-items  text-center text-md-left">
+                <?php echo get_post_meta($post->ID, 'content-right', true); ?>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <section class="common-section team-section">
         <div class="parallax-box">
           <img class="parallax-img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/testimonials-bg.jpg">
@@ -150,17 +178,8 @@ get_header();
         </div>
       </section>
 
-      <section class="common-section services-section">
-        <div class="parallax-box">
-          <img class="parallax-img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/contact-bg.jpg">
-        </div>
-        <div class="container py-5">
-          <div class="section-title text-center text-white mb-4">
-            <h2>Get in touch with us today!</h2>
-          </div>
-          <p class="text-center mt-5"><a class="btn btn-light" href="<?php echo site_url(); ?>/contact/"> WRITE TO US </a></p>
-        </div>
-      </section>
+      <!-- DISPLAY CALLTO SECTION -->
+      <?php get_template_part('template-parts/content', 'callto-section'); ?>
 
     </div>
 

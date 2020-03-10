@@ -54,7 +54,7 @@ get_header();
                   <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
                   <h5 class="card-title mb-1 mt-2">Phone</h5>
                   <?php $phone_mod = ( !empty(get_theme_mod('undercustoms_contact_info_phone')) ) ? get_theme_mod('undercustoms_contact_info_phone') : 'Set Phone in theme options' ; ?>
-                  <p class="card-text"> <a href="tel:<?php echo $phone_mod; ?>"><?php echo $phone_mod; ?></a> </p>
+                  <p class="card-text"> <a href="tel:<?php echo str_replace(' ', '', $phone_mod); ?>"><?php echo $phone_mod; ?></a> </p>
                 </div>
               </div>
             </div>

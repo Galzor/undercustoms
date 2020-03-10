@@ -342,7 +342,7 @@ get_header();
     </div>
   </section>
 
-  <section class="common-section gallery-section bg-white border-top">
+  <section class="common-section gallery-section bg-white">
     <div class="container-fluid">
       <div class="section-title text-center mb-5">
         <h2>The Fitness Life</h2>
@@ -385,10 +385,28 @@ get_header();
         </div>
       </div>
 
-      <!-- <div class="text-center pt-1">
+      <div class="text-center pt-1">
         <a class="btn btn-primary" href="<?php echo site_url(); ?>/gallery/"> <strong>View Gallery</strong></a>
-      </div> -->
+      </div>
 
+    </div>
+  </section>
+
+  <section class="common-section text-section bg-white">
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="section-title text-left">
+            <h2>How to Invest</h2>
+            <p>Better approach to the stock markets </p>
+          </div>
+          <p class="lead"><strong>First, planning is everything.</strong> Before you even get the money in your hand, you should consider what you want this money to do for you. <strong>Second, will you take care of your investment or hand it over to an advisor?</strong> But if you lack time or knowledge, having a professional looking over your investments could be a smart thing. Since I’m passionate about finance and have plenty of time to manage my portfolio, I decided to trust my methodology. </p>
+          <a class="btn btn-primary" href="<?php echo site_url(); ?>/contact/"> <i class="fa fa-paper-plane"></i> Contact me </a>
+        </div>
+        <div class="col-md-5 pl-md-5">
+          <img class="img-thumbnail w-100" src="<?php echo get_stylesheet_directory_uri(); ?>/img/section2.jpg" alt="">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -401,7 +419,7 @@ get_header();
 
       <div class="section-title text-center mb-5 text-white">
         <h2>Testimonials</h2>
-        <p>Read our humble clients say!</p>
+        <p>The word on the streets</p>
       </div>
 
       <div class="testimonial-slider">
@@ -415,20 +433,20 @@ get_header();
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="testimonial-item">
-                  <p>it's a shame to grow old without seeing what manner of man we may become when we develop our mind and body to their limits. </p>
-                  <h5>John Doe</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, quae eius nobis iure vel quaerat illum repellendus similique reprehenderit dicta odio error accusantium voluptates, molestiae quam. </p>
+                  <h5>Leon Kennedy</h5>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="testimonial-item">
-                  <p>I live by this Ancient Greek wisdom. Education and physical training are the pillars of my life. I tried to ignore it and follow a more traditional career path as a business consultant. </p>
-                  <h5>Jane Doe</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, quae eius nobis iure vel quaerat illum repellendus similique reprehenderit dicta odio error accusantium voluptates, molestiae quam. </p>
+                  <h5>Jesse Faden</h5>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="testimonial-item">
-                  <p>The best decision of my life was trading my luxury time to follow my passion in fitness. It wasn't for me. </p>
-                  <h5>John Doe</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, quae eius nobis iure vel quaerat illum repellendus similique reprehenderit dicta odio error accusantium voluptates, molestiae quam. </p>
+                  <h5>Claire Redfield</h5>
                 </div>
               </div>
             </div>

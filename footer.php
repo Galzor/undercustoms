@@ -60,7 +60,7 @@
             <h5 class="footer-title mt-5 mt-lg-0">Reach us</h5>
             <div class="footer-text">
               <?php $phone_mod = ( !empty(get_theme_mod('undercustoms_contact_info_phone')) ) ? get_theme_mod('undercustoms_contact_info_phone') : '+1 123 456 7890' ; ?>
-              <p class="mb-1"><i class="fa fa-phone"></i> <a href="tel:<?php echo $phone_mod; ?>"><?php echo $phone_mod; ?></a></p>
+              <p class="mb-1"><i class="fa fa-phone"></i> <a href="tel:<?php echo str_replace(' ', '', $phone_mod); ?>"><?php echo $phone_mod; ?></a></p>
               <?php $email_mod = ( !empty(get_theme_mod('undercustoms_contact_info_email')) ) ? get_theme_mod('undercustoms_contact_info_email') : 'youremail@mail.com' ; ?>
               <p class="mb-1"><i class="fa fa-envelope"></i> <a href="mailto:<?php echo $email_mod; ?>"><?php echo $email_mod; ?></a></p>
               <?php $address_mod = ( !empty(get_theme_mod('undercustoms_contact_info_address')) ) ? get_theme_mod('undercustoms_contact_info_address') : 'Address Line, Country' ; ?>
@@ -75,17 +75,20 @@
     <div class="footer-bottom">
       <div class="container">
         <div class="row">
-
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="copyrights-text">
-              <p class="text-muted text-center py-3 m-0">
+              <p class="text-muted text-center text-md-left py-3 m-0">
                 &copy; 2020 <?php bloginfo('name'); ?>, All Rights Reserved.
-                <span class="sep"> | </span>
-                Handcrafted by <a href="http://galzor.com" target="_blank">Amanz</a>
               </p>
             </div>
           </div>
-
+          <div class="col-md-6">
+            <div class="copyrights-text">
+              <p class="text-muted text-center text-md-right py-3 m-0">
+                Designed by <a href="http://galzor.com" target="_blank">Amanz</a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -98,19 +101,20 @@
 <div class="back-to-top"> <i class="fa fa-chevron-up"></i> </div>
 
 <!-- Final Scripts -->
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/simpleParallax.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/tiny-slider.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/wow.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.fancybox.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/plugins.js"></script>
-
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/fontawesome.all.min.js" async></script>
 
 <script>
-$(document).ready(function() {
+jQuery(document).ready(function( $ ) { //noconflicts
   // console.log('footer js initilized.');
+
+  // WOW Animate effects
+  // new WOW().init();
 
 
 });

@@ -127,17 +127,8 @@ get_header();
         </div>
       </section>
 
-      <section class="common-section services-section">
-        <div class="parallax-box">
-          <img class="parallax-img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/contact-bg.jpg">
-        </div>
-        <div class="container py-5">
-          <div class="section-title text-center text-white mb-4">
-            <h2>Get in touch with us today!</h2>
-          </div>
-          <p class="text-center mt-5"><a class="btn btn-light" href="<?php echo site_url(); ?>/write-to-us/"> WRITE TO US </a></p>
-        </div>
-      </section>
+      <!-- DISPLAY CALLTO SECTION -->
+      <?php get_template_part('template-parts/content', 'callto-section'); ?>
 
     </div>
 

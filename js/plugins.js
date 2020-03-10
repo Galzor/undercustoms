@@ -1,10 +1,37 @@
-$(document).ready(function() {
+jQuery(document).ready(function( $ ) { //noconflicts
   console.log('plugins initilized.');
 
   // WOW Animate effects
   // new WOW().init();
 
-  // Tiny Slider default
+  // Tiny Slides 3
+  if ($(".tiny-slider-trio").length > 0) {
+
+    var slider = tns({
+      container: '.tiny-slider-trio',
+      items: 1,
+      gutter: 20,
+      slideBy: 1,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      autoplayButton: false,
+      autoplayPosition: 'bottom',
+      autoplayButtonOutput: false,
+      controls: false,
+      controlsPosition: 'bottom',
+      nav: true,
+      navPosition: 'bottom',
+      responsive: {
+        480: { items: 1 },
+        576: { items: 2 },
+        768: { items: 2 },
+        992: { items: 3 },
+        1200: { items: 3 }
+      }
+    });
+  }
+
+  // Tiny Slides 4
   if ($(".tiny-slider-quadra").length > 0) {
 
     var slider = tns({
@@ -27,6 +54,33 @@ $(document).ready(function() {
         768: { items: 3 },
         992: { items: 4 },
         1200: { items: 4 }
+      }
+    });
+  }
+
+  // Tiny Slides 5
+  if ($(".tiny-slider-penta").length > 0) {
+
+    var slider = tns({
+      container: '.tiny-slider-penta',
+      items: 1,
+      gutter: 20,
+      slideBy: 1,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      autoplayButton: false,
+      autoplayPosition: 'bottom',
+      autoplayButtonOutput: false,
+      controls: false,
+      controlsPosition: 'bottom',
+      nav: true,
+      navPosition: 'bottom',
+      responsive: {
+        480: { items: 1 },
+        576: { items: 2 },
+        768: { items: 3 },
+        992: { items: 4 },
+        1200: { items: 5 }
       }
     });
   }
@@ -68,38 +122,28 @@ $(document).ready(function() {
       $('.tiny-slider-center .tns-slide-active:eq(0)').addClass('firstly');
       $('.tiny-slider-center .tns-slide-active:eq(2)').addClass('middle');
       $('.tiny-slider-center .tns-slide-active:eq(4)').addClass('lastly');
-      console.log('tiny me');
+      // console.log('tiny centered');
     }
 
   }
 
 
 
-
-  // Rellax Parallax
-  // var rellax = new Rellax('.rellax');
-  // var rellax = new Rellax('.rellax', {
-  //   breakpoints: [576, 768, 1201],
-  //   center: true,
-  // });
-
+  // init parallax
   var parallax_img = document.getElementsByClassName('parallax-img');
-  // new simpleParallax(parallax_img);
   new simpleParallax(parallax_img, {
     scale: 1.2
   });
 
   // refresh on resize
   window.onresize = function(event) {
-    // rellax.refresh();
-    console.log('refreshed');
+    console.log('window resized');
   };
 
   //destroy on phones
   if( getMobileOS() ){
-    // rellax.destroy();
     // parallax_img.destroy();
-    console.log('destroyed');
+    console.log('parallax destroyed');
   }
 
   //check if phones
@@ -119,7 +163,7 @@ $(document).ready(function() {
   }
 
 
-  //back to top
+  // back to top
   backToTop();
   function backToTop(){
     $(".back-to-top").css("display","none");
@@ -138,4 +182,4 @@ $(document).ready(function() {
   };
 
 
-});
+}); //jQuery end
